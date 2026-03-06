@@ -27,6 +27,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { brandConfig } from '@/config';
 import { usePathname, useRouter } from 'next/navigation';
 import {
   LayoutDashboard,
@@ -240,14 +241,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div className={`h-16 flex items-center border-b border-[var(--color-border-subtle)] transition-all duration-300 px-5 ${sidebarCollapsed ? 'justify-center px-0' : 'justify-between'}`}>
           <div className={`flex items-center transition-all duration-300 ${sidebarCollapsed ? 'gap-0 justify-center' : 'gap-3'}`}>
             <Image
-              src="/icons/logo.png"
-              alt="PragmusCRM"
+              src={brandConfig.logoUrl}
+              alt={brandConfig.name}
               width={36}
               height={36}
               className="rounded-xl shrink-0"
             />
             <span className={`text-xl font-bold font-display tracking-tight text-slate-900 dark:text-white whitespace-nowrap overflow-hidden transition-all duration-300 ${sidebarCollapsed ? 'w-0 opacity-0' : 'w-auto opacity-100'}`}>
-              PragmusCRM
+              {brandConfig.name}
             </span>
           </div>
 

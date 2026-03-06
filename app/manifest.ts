@@ -1,29 +1,21 @@
 import type { MetadataRoute } from 'next';
+import { brandConfig } from '@/config';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'PragmusCRM',
-    short_name: 'PragmusCRM',
-    description: 'CRM Inteligente para Gestão de Vendas',
+    name: brandConfig.name,
+    short_name: brandConfig.shortName,
+    description: brandConfig.description,
     start_url: '/boards',
     display: 'standalone',
     background_color: '#ffffff',
-    theme_color: '#0ea5e9',
+    theme_color: brandConfig.primaryColor,
     icons: [
-      // SVG icons keep the repo text-only. If you need iOS splash/touch icons later,
-      // add PNGs in a follow-up.
       {
-        src: '/icons/icon.svg',
+        src: brandConfig.logoUrl,
         sizes: 'any',
-        type: 'image/svg+xml',
-      },
-      {
-        src: '/icons/maskable.svg',
-        sizes: 'any',
-        type: 'image/svg+xml',
-        purpose: 'maskable',
+        type: 'image/png',
       },
     ],
   };
 }
-
