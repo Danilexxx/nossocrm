@@ -3,12 +3,13 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ServiceWorkerRegister } from '@/components/pwa/ServiceWorkerRegister'
 import { InstallBanner } from '@/components/pwa/InstallBanner'
+import { brandConfig } from '@/config'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
-  title: 'PragmusCRM',
-  description: 'CRM Inteligente para Gestão de Vendas',
+  title: brandConfig.name,
+  description: brandConfig.description,
 }
 
 /**

@@ -1,3 +1,5 @@
+import { brandConfig } from '@/config';
+
 export type PromptCatalogItem = {
   /** Key estável usado pelo código para buscar o prompt */
   key: string;

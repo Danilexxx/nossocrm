@@ -4,16 +4,18 @@
 // - Keep this file updated together with route implementations.
 // - Prefer stable, integration-friendly shapes (simple objects, consistent errors).
 
+import { brandConfig } from '@/config';
+
 export type OpenApiDocument = Record<string, any>;
 
 export function getPublicApiOpenApiDocument(): OpenApiDocument {
   return {
     openapi: '3.1.2',
     info: {
-      title: 'PragmusCRM Public API',
+      title: `${brandConfig.name} Public API`,
       version: 'v1',
       description:
-        'API pública do PragmusCRM para integrações (n8n/Make). Produto em primeiro lugar: copiar → colar → testar.',
+        `API pública do ${brandConfig.name} para integrações (n8n/Make). Produto em primeiro lugar: copiar → colar → testar.`,
     },
     servers: [{ url: '/api/public/v1' }],
     tags: [

@@ -1,5 +1,6 @@
 import { PeriodFilter, PERIOD_LABELS } from '@/features/dashboard/hooks/useDashboardMetrics';
 import { Deal } from '@/types';
+import { brandConfig } from '@/config';
 
 interface ReportData {
     pipelineValue: number;
@@ -73,13 +74,13 @@ export const generateReportPDF = async (data: ReportData, period: PeriodFilter, 
     // HEADER
     // ============================================
 
-    // Logo placeholder (N for PragmusCRM)
+    // Logo placeholder
     doc.setFillColor(...COLORS.blue);
     doc.roundedRect(margin, 12, 12, 12, 2, 2, 'F');
     doc.setFontSize(10);
     doc.setFont('helvetica', 'bold');
     doc.setTextColor(255, 255, 255);
-    doc.text('N', margin + 4.5, 20);
+    doc.text(brandConfig.shortName.charAt(0).toUpperCase(), margin + 4.5, 20);
 
     // Title
     doc.setFontSize(20);
@@ -319,7 +320,7 @@ export const generateReportPDF = async (data: ReportData, period: PeriodFilter, 
     // Footer text
     doc.setFontSize(7);
     doc.setTextColor(...COLORS.secondary);
-    doc.text('PragmusCRM', margin, pageHeight - 10);
+    doc.text(brandConfig.name, margin, pageHeight - 10);
     doc.text('Página 1', pageWidth / 2, pageHeight - 10, { align: 'center' });
     doc.text(new Date().toLocaleDateString('pt-BR'), pageWidth - margin, pageHeight - 10, { align: 'right' });
 

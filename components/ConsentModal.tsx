@@ -10,6 +10,7 @@ import {
   OPTIONAL_CONSENTS,
   CONSENT_VERSIONS 
 } from '@/lib/consent/consentService';
+import { brandConfig } from '@/config';
 
 interface ConsentModalProps {
   isOpen: boolean;
@@ -21,7 +22,7 @@ interface ConsentModalProps {
 const CONSENT_LABELS: Record<ConsentType, { title: string; description: string }> = {
   terms: {
     title: 'Termos de Uso',
-    description: 'Li e aceito os Termos de Uso do PragmusCRM.',
+    description: `Li e aceito os Termos de Uso do ${brandConfig.name}.`,
   },
   privacy: {
     title: 'Política de Privacidade',
@@ -120,7 +121,7 @@ export const ConsentModal: React.FC<ConsentModalProps> = ({
             Consentimentos Necessários
           </h2>
           <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            Para continuar usando o PragmusCRM, precisamos do seu consentimento.
+            Para continuar usando o {brandConfig.name}, precisamos do seu consentimento.
           </p>
         </div>
 

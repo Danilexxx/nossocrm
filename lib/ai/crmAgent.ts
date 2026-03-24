@@ -6,6 +6,7 @@ import { CRMCallOptionsSchema, type CRMCallOptions } from '@/types/ai';
 import { createCRMTools } from './tools';
 import { formatPriorityPtBr } from '@/lib/utils/priority';
 import { AI_DEFAULT_MODELS, AI_DEFAULT_PROVIDER } from './defaults';
+import { brandConfig } from '@/config';
 
 type AIProvider = 'google' | 'openai' | 'anthropic';
 
@@ -402,7 +403,7 @@ function buildContextPrompt(options: CRMCallOptions): string {
 /**
  * Base instructions for the CRM Agent
  */
-const BASE_INSTRUCTIONS = `Você é o PragmusCRM Pilot, um assistente de vendas inteligente. 🚀
+const BASE_INSTRUCTIONS = `Você é o ${brandConfig.name} Pilot, um assistente de vendas inteligente. 🚀
 
 PERSONALIDADE:
 - Seja proativo, amigável e analítico
